@@ -179,7 +179,7 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
             signInButton.setVisibility(View.GONE);
             signOutButton.setVisibility(View.VISIBLE);
         } else {
-            mStatusTextView.setText(R.string.signed_out);
+            //mStatusTextView.setText(R.string.signed_out);
             Bitmap icon = BitmapFactory.decodeResource(getContext().getResources(),R.drawable.user_default);
             imgProfilePic.setImageBitmap(ImageHelper.getRoundedCornerBitmap(getContext(),icon, 200, 200, 200, false, false, false, false));
             signInButton.setVisibility(View.VISIBLE);
