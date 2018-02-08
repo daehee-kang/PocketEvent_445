@@ -33,6 +33,9 @@ import com.google.android.gms.common.api.Status;
 import java.io.InputStream;
 import java.net.URL;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
 
 public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -46,9 +49,6 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
     private TextView mStatusTextView;
     private ProgressDialog mProgressDialog;
     private ImageView imgProfilePic;
-
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
