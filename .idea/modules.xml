@@ -3,7 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/login.iml" filepath="$PROJECT_DIR$/login.iml" />
+=======
+      <module fileurl="file://D:\X1_Carbon_Docs\Bryan's\Documents\GitHub\PocketEvent_445\app\app.iml" filepath="D:\X1_Carbon_Docs\Bryan's\Documents\GitHub\PocketEvent_445\app\app.iml" />
+      <module fileurl="file://D:\X1_Carbon_Docs\Bryan's\Documents\GitHub\PocketEvent_445\login.iml" filepath="D:\X1_Carbon_Docs\Bryan's\Documents\GitHub\PocketEvent_445\login.iml" />
+>>>>>>> parent of 6ed9fc3... take2
     </modules>
   </component>
 </project>

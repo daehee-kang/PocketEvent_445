@@ -21,6 +21,13 @@
             android:layout_marginTop="@dimen/g_top_margin"
             android:src="@drawable/eventplanning"/>
 
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signed_out"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
     </LinearLayout>
 
 
