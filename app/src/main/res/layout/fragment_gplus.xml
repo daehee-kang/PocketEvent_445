@@ -46,6 +46,16 @@
             android:visibility="visible"
             tools:visibility="gone"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/proceed"
+            android:layout_marginTop="30dp"
+            android:text="@string/proceed"
+            android:theme="@style/ThemeOverlay.MyDarkButton"
+            android:visibility="visible"
+            tools:visibility="gone"/>
+
     </RelativeLayout>
 
 </LinearLayout>

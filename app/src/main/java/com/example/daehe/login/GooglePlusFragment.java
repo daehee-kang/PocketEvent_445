@@ -41,6 +41,7 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
     private GoogleApiClient mGoogleApiClient;
     private SignInButton signInButton;
     private Button signOutButton;
+    private Button proceedButton;
     private Button disconnectButton;
     private LinearLayout signOutView;
     private ProgressDialog mProgressDialog;
@@ -104,6 +105,7 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
 
         signInButton = (SignInButton) v.findViewById(R.id.sign_in_button);
         signOutButton = (Button) v.findViewById(R.id.sign_out_button);
+        proceedButton = (Button) v.findViewById(R.id.proceed);
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,9 +171,11 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
         if (signedIn) {
             signInButton.setVisibility(View.GONE);
             signOutButton.setVisibility(View.VISIBLE);
+            proceedButton.setVisibility(View.VISIBLE);
         } else {
             signInButton.setVisibility(View.VISIBLE);
             signOutButton.setVisibility(View.GONE);
+            proceedButton.setVisibility(View.GONE);
         }
     }
 
