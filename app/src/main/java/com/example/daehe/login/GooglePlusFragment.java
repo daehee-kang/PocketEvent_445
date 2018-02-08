@@ -43,9 +43,8 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
     private Button signOutButton;
     private Button disconnectButton;
     private LinearLayout signOutView;
-    private TextView mStatusTextView;
     private ProgressDialog mProgressDialog;
-    private ImageView imgProfilePic;
+    private ImageView pe_logo;
 
 
 
@@ -105,11 +104,7 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
 
         signInButton = (SignInButton) v.findViewById(R.id.sign_in_button);
         signOutButton = (Button) v.findViewById(R.id.sign_out_button);
-        imgProfilePic = (ImageView) v.findViewById(R.id.img_profile_pic);
 
-        mStatusTextView = (TextView) v.findViewById(R.id.status);
-        Bitmap icon = BitmapFactory.decodeResource(getContext().getResources(),R.drawable.user_default);
-        imgProfilePic.setImageBitmap(ImageHelper.getRoundedCornerBitmap(getContext(), icon, 200, 200, 200, false, false, false, false));
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,11 +153,7 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
         if (result.isSuccess()) {
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
-            mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
             //Similarly you can get the email and photourl using acct.getEmail() and  acct.getPhotoUrl()
-
-            if(acct.getPhotoUrl() != null)
-                new LoadProfileImage(imgProfilePic).execute(acct.getPhotoUrl().toString());
 
             updateUI(true);
         } else {
@@ -179,9 +170,6 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
             signInButton.setVisibility(View.GONE);
             signOutButton.setVisibility(View.VISIBLE);
         } else {
-            //mStatusTextView.setText(R.string.signed_out);
-            Bitmap icon = BitmapFactory.decodeResource(getContext().getResources(),R.drawable.user_default);
-            imgProfilePic.setImageBitmap(ImageHelper.getRoundedCornerBitmap(getContext(),icon, 200, 200, 200, false, false, false, false));
             signInButton.setVisibility(View.VISIBLE);
             signOutButton.setVisibility(View.GONE);
         }
@@ -212,9 +200,10 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
     }
 
 
-    /**
+    /*
+    **
      * Background Async task to load user profile picture from url
-     * */
+     * *
     private class LoadProfileImage extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
 
@@ -246,6 +235,7 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
             }
         }
     }
+    */
 
 
 }
