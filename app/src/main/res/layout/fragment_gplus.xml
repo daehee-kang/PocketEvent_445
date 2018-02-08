@@ -46,7 +46,6 @@
             android:visibility="visible"
             tools:visibility="gone"/>
 
-<<<<<<< HEAD
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,13 +53,6 @@
             android:layout_marginTop="30dp"
             android:text="@string/proceed"
             android:theme="@style/ThemeOverlay.MyDarkButton"
-=======
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
->>>>>>> BryanD
             android:visibility="visible"
             tools:visibility="gone"/>
 

@@ -44,7 +44,5 @@
              from https://console.developers.google.com/ -->
         <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
     <string name="name">Name :</string>
-    <string name="facebook_app_id">932639416905063</string>
-    <string name="fb_login_protocol_scheme">fb932639416905063</string>
 </resources>
 
