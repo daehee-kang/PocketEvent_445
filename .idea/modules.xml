@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/PocketEvent_445.iml" filepath="$PROJECT_DIR$/PocketEvent_445.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/login.iml" filepath="$PROJECT_DIR$/login.iml" />
+      <module fileurl="file://D:\X1_Carbon_Docs\Bryan's\Documents\GitHub\PocketEvent_445\login.iml" filepath="D:\X1_Carbon_Docs\Bryan's\Documents\GitHub\PocketEvent_445\login.iml" />
     </modules>
   </component>
 </project>
