@@ -115,18 +115,18 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
                 switch (v.getId()) {
                     case R.id.menu_map_frag:
                         fragment = new menu_map_fragment();
-                        replaceFragment(fragment);
+                        //replaceFragment(fragment);
                         break;
                 }
             }
-
+/*
             public void replaceFragment(Fragment someFragment) {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.intent_activity, someFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
-
+*/
         });
 
         signInButton.setOnClickListener(new View.OnClickListener() {
