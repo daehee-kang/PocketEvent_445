@@ -7,9 +7,11 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.telecom.Call;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.internal.CallbackManagerImpl;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -32,7 +41,13 @@ import com.google.android.gms.common.api.Status;
 
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Arrays;
 
+<<<<<<< HEAD
+=======
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+>>>>>>> BryanD
 
 public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -45,15 +60,22 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
     private Button disconnectButton;
     private LinearLayout signOutView;
     private ProgressDialog mProgressDialog;
+<<<<<<< HEAD
     private ImageView pe_logo;
 
 
 
+=======
+    private ImageView imgProfilePic;
+    private LoginButton loginButton;
+    private CallbackManager callbackManager;
+>>>>>>> BryanD
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -66,10 +88,7 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
                 .enableAutoManage(getActivity() /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
-
-
     }
-
 
     @Override
     public void onStart() {
@@ -116,7 +135,6 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
 
         });
 
-
         signOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,12 +149,32 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
 
         });
 
+        callbackManager = CallbackManager.Factory.create();
+
+        //Facebook Login stuff here
+        loginButton = (LoginButton) v.findViewById(R.id.login_button);
+        //loginButton.setReadPermissions(Arrays.asList(ContactsContract.CommonDataKinds.Email.CONTACT_ID));
+        loginButton.setFragment(this);
+
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                mStatusTextView.setText("Sign in");
+            }
+
+            @Override
+            public void onCancel() {
+                mStatusTextView.setText("Login attempt canceled.");
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                mStatusTextView.setText("Login attempt failed.");
+            }
+        });
+
        return v;
     }
-
-
-
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -147,8 +185,13 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             handleSignInResult(result);
         }
-    }
 
+        if(requestCode == CallbackManagerImpl.RequestCodeOffset.Login.toRequestCode())
+        {
+            callbackManager.onActivityResult(requestCode, resultCode, data);
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
 
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
@@ -163,9 +206,6 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
             updateUI(false);
         }
     }
-
-
-
 
     private void updateUI(boolean signedIn) {
         if (signedIn) {
@@ -203,9 +243,13 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
 
     }
 
+<<<<<<< HEAD
 
     /*
     **
+=======
+    /**
+>>>>>>> BryanD
      * Background Async task to load user profile picture from url
      * *
     private class LoadProfileImage extends AsyncTask<String, Void, Bitmap> {
