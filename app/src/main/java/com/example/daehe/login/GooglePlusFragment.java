@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -100,12 +101,33 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup parent, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_gplus, parent, false);
 
         signInButton = (SignInButton) v.findViewById(R.id.sign_in_button);
         signOutButton = (Button) v.findViewById(R.id.sign_out_button);
         proceedButton = (Button) v.findViewById(R.id.proceed);
+
+        proceedButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Fragment fragment = null;
+                switch (v.getId()) {
+                    case R.id.menu_map_frag:
+                        fragment = new menu_map_fragment();
+                        replaceFragment(fragment);
+                        break;
+                }
+            }
+
+            public void replaceFragment(Fragment someFragment) {
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.intent_activity, someFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+
+        });
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
