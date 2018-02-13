@@ -78,12 +78,6 @@ public class GooglePlusFragment extends Fragment implements GoogleApiClient.OnCo
                 .enableAutoManage(getActivity() /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
                 .build();
-
-
-
-
-
-
     }
 
     @Override
